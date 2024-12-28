@@ -23,7 +23,7 @@ const createRoutes = (admin) => {
                 });
             });
 
-             res.status(200).json({ data: hospitals });
+             res.status(200).json({ success: true, message: 'Hospitals retrieved successfully', data: hospitals });
         } catch (error) {
             next(error);
         }
