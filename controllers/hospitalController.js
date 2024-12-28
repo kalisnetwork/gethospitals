@@ -19,7 +19,7 @@ const getHospitals = async (req, res, next) => {
       });
     });
 
-    res.status(200).json({ success: true, message: 'Hospitals retrieved successfully', hospitals });
+    res.status(200).json({ success: true, message: 'Hospitals retrieved successfully', data: hospitals });
   } catch (error) {
     next(error);
   }
