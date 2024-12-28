@@ -8,7 +8,7 @@ const getHospitals = async (req, res, next) => {
     const snapshot = await hospitalsCollection.get();
 
     if (snapshot.empty) {
-      return res.status(404).json({ message: 'No hospitals found' });
+      return res.status(404).json({ success: false, message: 'No hospitals found' });
     }
 
     const hospitals = [];
@@ -19,11 +19,10 @@ const getHospitals = async (req, res, next) => {
       });
     });
 
-    res.status(200).json(hospitals);
+    res.status(200).json({ success: true, message: 'Hospitals retrieved successfully', hospitals });
   } catch (error) {
     next(error);
   }
 };
-
 
 export { getHospitals };
