@@ -1,5 +1,5 @@
-// routes/index.js
 import express from 'express';
+import { getNearbyDriversAndHospitals, index } from '../controllers/driverController.js';
 
 const createRoutes = (admin) => {
     const router = express.Router();
@@ -28,6 +28,14 @@ const createRoutes = (admin) => {
             next(error);
         }
     });
+
+
+    // Nearby drivers and hospitals route
+    router.get('/nearby-drivers-and-hospitals', getNearbyDriversAndHospitals);
+
+     // All drivers route
+    router.get('/drivers', index);
+
 
     return router;
 };
